@@ -1,0 +1,5 @@
+{
+  "name": "NightclubPOS",
+  "description": "Real-time SaaS for nightclub management. Features mobile-first POS for waiters with complex drink logic and a data-heavy admin dashboard.",
+  "requestFramePermissions": []
+}

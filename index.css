@@ -1,0 +1,38 @@
+/* Custom Tablet Optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Increase Grid Columns for Tablet */
+  .grid-cols-2 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  /* Make touch targets larger */
+  button {
+    min-height: 48px; 
+  }
+
+  /* Adjust font sizes for readability on tablet */
+  .text-xs {
+    font-size: 0.85rem !important;
+  }
+  
+  .text-sm {
+    font-size: 1rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.5rem !important;
+  }
+
+  /* Optimize layout padding */
+  .p-2 {
+    padding: 1rem !important;
+  }
+}
+
+/* Base Install Button adjustments if needed */
+.install-button-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
