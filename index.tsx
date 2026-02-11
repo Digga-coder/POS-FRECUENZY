@@ -14,10 +14,6 @@ if (!rootElement) {
 } else {
   const root = ReactDOM.createRoot(rootElement);
 
-  // Limpiar mensaje de carga nativo
-  const loader = document.getElementById('loading-msg');
-  if (loader) loader.style.display = 'none';
-
   root.render(
     <React.StrictMode>
       <ErrorBoundary>
