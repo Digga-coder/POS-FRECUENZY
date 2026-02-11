@@ -1,1 +1,5 @@
-/* /index.html 200
+# Exclude assets from SPA redirect to ensure 404s are real 404s (helping debugging)
+/assets/*  /assets/:splat  404
+
+# SPA Fallback
+/*  /index.html  200
