@@ -9,8 +9,57 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<title>Nightclub POS</title>
+<link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  #global-error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    color: red;
+    z-index: 9999;
+    padding: 20px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    display: none;
+    overflow: auto;
+  }
+
+  #loading-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+  }
+</style>
+</head>
+
+<body class="bg-black text-white">
+  <div id="loading-msg">Cargando sistema...</div>
+  <div id="global-error"></div>
   <div id="root"></div>
+
+  <script>
+    window.onerror = function (msg, url, line, col, error) {
+      document.getElementById('loading-msg').style.display = 'none';
+      var errorDiv = document.getElementById('global-error');
+      errorDiv.style.display = 'block';
+      errorDiv.innerHTML += "<h3>Error Global:</h3>" + msg + "\nEn: " + url + ":" + line + ":" + col + "\n" + (error ? error.stack : "") + "\n\n";
+    };
+    window.onunhandledrejection = function (event) {
+      document.getElementById('loading-msg').style.display = 'none';
+      var errorDiv = document.getElementById('global-error');
+      errorDiv.style.display = 'block';
+      errorDiv.innerHTML += "<h3>Promesa fallida:</h3>" + event.reason + "\n\n";
+    };
+  </script>
 
   <script type="module" src="/index.tsx"></script>
   <script>
