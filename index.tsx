@@ -13,6 +13,11 @@ if (!rootElement) {
   document.body.innerHTML = '<h1 style="color:red;text-align:center;margin-top:50px">ERROR: Falta <div id="root"></div> en index.html</h1>';
 } else {
   const root = ReactDOM.createRoot(rootElement);
+
+  // Limpiar mensaje de carga nativo
+  const loader = document.getElementById('loading-msg');
+  if (loader) loader.style.display = 'none';
+
   root.render(
     <React.StrictMode>
       <ErrorBoundary>
